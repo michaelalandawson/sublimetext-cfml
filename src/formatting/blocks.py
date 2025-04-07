@@ -87,6 +87,7 @@ def format_blocks(cfml_format):
             "elseif",
             "while",
             "catch",
+            "finally",
         ]:
             continue
 

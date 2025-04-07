@@ -10,6 +10,7 @@ WHILE_SELECTOR = " meta.while.cfml"
 PREVIOUS_BLOCK_SCOPES = {
     "while": "meta.do-while.cfml",
     "catch": "meta.try.cfml",
+    "finally": "meta.catch.cfml",
     "else": "meta.conditional.cfml",
     "elseif": "meta.conditional.cfml",
 }
@@ -40,7 +41,7 @@ def format_keywords(cfml_format):
         previous_char_point = utils.get_previous_character(cfml_format.view, r.begin())
         if not cfml_format.view.match_selector(previous_char_point, "comment"):
 
-            if keyword in ["else", "elseif", "while", "catch"]:
+            if keyword in ["else", "elseif", "while", "catch", "finally"]:
                 to_keyword_spacing = cfml_format.get_setting(
                     "keywords.block_to_keyword_spacing", keyword
                 )
